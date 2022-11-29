@@ -61,6 +61,11 @@ async function run() {
             const result = await usersCollection.find(query).toArray()
             res.send(result)
         })
+        app.get('/addProducts',async(req,res)=>{
+            const query = {};
+            const result = await addProductsCollection.find(query).toArray()
+            res.send(result)
+        })
         app.post('/bookings', async (req, res) => {
             const booking = req.body;
             console.log(booking)
