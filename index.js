@@ -54,7 +54,12 @@ async function run() {
             const user =await usersCollection.findOne(query)
             res.send({isSellers:user?.role === 'Sellers'})
         })
-        
+        app.get('/users',async(req,res)=>{
+            const role = req.query.role;
+            const query = {role:role}
+            const result = await usersCollection.find(query).toArray()
+            res.send(result)
+        })
         app.post('/bookings', async (req, res) => {
             const booking = req.body;
             console.log(booking)
