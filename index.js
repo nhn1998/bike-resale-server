@@ -27,7 +27,7 @@ async function run() {
             const query = {};
             const cursor = await catagoriesCollection.find(query).toArray()
             res.send(cursor)
-        });
+        }); 
 
         app.get('/catagories/:id', async (req, res) => {
             const id = req.params.id;
