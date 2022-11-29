@@ -48,6 +48,13 @@ async function run() {
             const user = await usersCollection.findOne(query)
             res.send({isBuyers:user?.role ==='Buyers'})
         })
+        app.get('/users/sellers/:email',async(req,res)=>{
+            const email = req.params.email;
+            const query = {email}
+            const user =await usersCollection.findOne(query)
+            res.send({isSellers:user?.role === 'Sellers'})
+        })
+        
         app.post('/bookings', async (req, res) => {
             const booking = req.body;
             console.log(booking)
